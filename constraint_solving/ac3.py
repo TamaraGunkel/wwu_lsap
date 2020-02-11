@@ -19,7 +19,7 @@ class AC3:
 
     def ac3(self):
         # Initialize workpool with arcs from constraints and their counterparts
-        workpool = OrderedSet() # Use ordered set to get consistent result although it is a normal set in the algorithm
+        workpool = OrderedSet()  # Use ordered set to get consistent result although it is a normal set in the algorithm
         iteration = 1
         for pair in self.constraints:
             workpool.add(pair)
@@ -68,11 +68,11 @@ class AC3:
         return change
 
 
-domains = {'x': [0, 1, 2, 3, 4],
-           'y': [0, 1, 2, 3, 4],
-           'z': [0, 1, 2, 3, 4]}
-constraints = {('x', 'y'): [(0, 1), (0, 4), (1, 2), (3, 1), (3, 4), (4, 2)],
-               ('x', 'z'): [(1, 1), (1, 4), (2, 0), (2, 3), (4, 1), (4, 4)]
+domains = {'x': [0, 1, 2, 3],
+           'y': [0, 1, 2, 3],
+           'z': [3]}
+constraints = {('x', 'y'): [(1, 3), (2, 2), (3, 1)],
+               ('x', 'z'): [(3, 3)]
                }
 
 algo = AC3([], domains, constraints)
